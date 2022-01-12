@@ -102,7 +102,7 @@ public class AppUserController {
     AppUser appUser = this.appUserRepository.findByEmail(userEmail);
 
     // if the user does not have a balance equal or more than the requested withdraw amount, an error is sent back
-    if (appUser.getBalance() < withdraw.getAmount()) {
+    if (appUser.getBalance().compareTo(withdraw.getAmount()) < 0) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cannot withdraw more than balance amount"); 
     }
 

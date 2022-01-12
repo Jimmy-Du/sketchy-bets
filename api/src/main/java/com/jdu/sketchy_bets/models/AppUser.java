@@ -1,5 +1,7 @@
 package com.jdu.sketchy_bets.models;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ public class AppUser {
   private Long id;
   private String email;
   private String password;
-  private Double balance = 0.0;
+  private BigDecimal balance = new BigDecimal("0.0");
 
 
 
@@ -22,7 +24,7 @@ public class AppUser {
 
 
 
-  public AppUser(Long id, String email, String password, Double balance) {
+  public AppUser(Long id, String email, String password, BigDecimal balance) {
     this.id = id;
     this.email = email;
     this.password = password;
@@ -61,21 +63,21 @@ public class AppUser {
     this.password = password;
   }
 
-  public Double getBalance() {
+  public BigDecimal getBalance() {
     return this.balance;
   }
 
-  public void setBalance(Double balance) {
+  public void setBalance(BigDecimal balance) {
     this.balance = balance;
   }
 
 
-  public void depositIntoBalance(Double amountToDeposit) {
-    this.balance += amountToDeposit;
+  public void depositIntoBalance(BigDecimal amountToDeposit) {
+    this.balance = this.balance.add(amountToDeposit).setScale(2);
   }
 
 
-  public void withdrawFromBalance(Double amountToWithdraw) {
-    this.balance -= amountToWithdraw;
+  public void withdrawFromBalance(BigDecimal amountToWithdraw) {
+    this.balance = this.balance.subtract(amountToWithdraw).setScale(2);
   }
 }
