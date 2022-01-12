@@ -1,9 +1,11 @@
 package com.jdu.sketchy_bets.requestModels;
 
-public class BalanceRequest {
-  Double amount;
+import java.math.BigDecimal;
 
-  public double getAmount() {
+public class BalanceRequest {
+  BigDecimal amount;
+
+  public BigDecimal getAmount() {
     return this.amount;
   }
 }
