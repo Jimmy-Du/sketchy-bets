@@ -1,0 +1,24 @@
+footer {
+  background-color: #0d9488;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  font-size: large;
+}
+
+@media (min-width: 2560px) {
+  footer p {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 3840px) {
+  footer p {
+    font-size: xx-large;
+  }
+}
