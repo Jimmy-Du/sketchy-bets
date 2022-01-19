@@ -10,3 +10,15 @@ footer p {
   color: white;
   font-size: large;
 }
+
+@media (min-width: 2560px) {
+  footer p {
+    font-size: x-large;
+  }
+}
+
+@media (min-width: 3840px) {
+  footer p {
+    font-size: xx-large;
+  }
+}

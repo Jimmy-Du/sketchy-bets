@@ -1,0 +1,23 @@
+.btn {
+  border: none;
+  border-radius: 5px;
+  font-size: medium;
+  padding: 7px;
+  color: white;
+}
+
+.btn:hover {
+  filter: brightness(80%);
+}
+
+@media (min-width: 2560px) {
+  .btn {
+    font-size: larger;
+  }
+}
+
+@media (min-width: 3840px) {
+  .btn {
+    font-size: x-large;
+  }
+}
