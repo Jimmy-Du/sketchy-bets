@@ -16,6 +16,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import static com.jdu.sketchy_bets.constants.SecurityConstants.SIGN_UP_URL;
 
+import java.util.Arrays;
+
 import com.jdu.sketchy_bets.security.AuthenticationFilter;
 import com.jdu.sketchy_bets.security.AuthorizationFilter;
 
@@ -51,8 +53,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
   @Bean
   CorsConfigurationSource corsConfigurationSource() {
-    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+    CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedOrigins(Arrays.asList("*"));
+    configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+    configuration.setAllowedHeaders(Arrays.asList("Authorization", "content-type", "x-auth-token", "token"));
+    configuration.setExposedHeaders(Arrays.asList("Authorization"));
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
     return source;
   }
 
