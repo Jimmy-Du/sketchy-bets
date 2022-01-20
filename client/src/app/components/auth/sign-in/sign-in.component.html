@@ -1,0 +1,18 @@
+<div class="auth-wrapper">
+  <div class="auth">
+    <h1>Sign In</h1>
+    <form class="auth-form">
+      <label class="input-label">Email</label>
+      <input class="auth-input" type="email" placeholder="email" [(ngModel)]="emailInput" name="email"/>
+      <label class="input-label">Password</label>
+      <input class="auth-input" type="password" placeholder="password" [(ngModel)]="passwordInput" name="password"/>
+      <app-button 
+        text="Sign In" 
+        color="#059669" 
+        (btnClick)="signInHandler()">
+      </app-button>
+      <a routerLink="/sign-up">Click here to sign up</a>
+      <p class="auth-error" *ngIf="error">{{error}}</p>
+    </form>
+  </div>
+</div>
