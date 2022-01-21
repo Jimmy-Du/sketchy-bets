@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseAPIURL: " LOCAL DEVELOPMENT URL HERE "
+  baseAPIURL: " LOCAL API LINK HERE ",
+  loginTokenName: " LOGIN TOKEN NAME HERE "
 };
 
 /*
