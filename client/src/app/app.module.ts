@@ -10,6 +10,9 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { ButtonComponent } from './components/common/button/button.component';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { MatchesComponent } from './components/matches/matches.component';
+import { MatchComponent } from './components/matches/match/match.component';
+import { MatchByIdComponent } from './components/matches/match-by-id/match-by-id.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SignInComponent } from './components/auth/sign-in/sign-in.component';
     FooterComponent,
     SignUpComponent,
     ButtonComponent,
-    SignInComponent
+    SignInComponent,
+    MatchesComponent,
+    MatchComponent,
+    MatchByIdComponent
   ],
   imports: [
     BrowserModule,
