@@ -1,0 +1,16 @@
+<div class="match" (click)="matchClickHandler(match!.id)">
+  <span class="match-date">
+    <p><strong>Start: </strong>{{ match!.matchDate | date: "long" }}</p>
+  </span>
+  <span>
+    <p>{{ match!.firstTeam.teamName }}</p>
+    <p>{{ match!.firstTeamOdds }}</p>
+  </span>
+  <span>
+    <p>vs.</p>
+  </span>
+  <span>
+    <p>{{ match!.secondTeam.teamName }}</p>
+    <p>{{ match!.secondTeamOdds }}</p>
+  </span>
+</div>
