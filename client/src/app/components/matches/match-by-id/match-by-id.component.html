@@ -1,0 +1,19 @@
+<div class="match-by-id-wrapper" *ngIf="selectedMatch">
+  <div class="match-by-id">
+    <h2>Match Details</h2>
+    <div class="match-by-id-grid">
+      <p class="match-date">Date: {{ selectedMatch!.matchDate | date: "long" }}</p>
+      <span>
+        <p>{{ selectedMatch!.firstTeam.teamName }}</p>
+        <p>{{ selectedMatch!.firstTeamOdds }}</p>
+      </span>
+      <span>
+        <p>vs.</p>
+      </span>
+      <span>
+        <p>{{ selectedMatch!.secondTeam.teamName }}</p>
+        <p>{{ selectedMatch!.secondTeamOdds }}</p>
+      </span>
+    </div>
+  </div>
+</div>
