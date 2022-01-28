@@ -13,6 +13,9 @@ import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { MatchComponent } from './components/matches/match/match.component';
 import { MatchByIdComponent } from './components/matches/match-by-id/match-by-id.component';
+import { BalanceComponent } from './components/balance/balance.component';
+import { DepositWithdrawComponent } from './components/balance/deposit-withdraw/deposit-withdraw.component';
+import { CurrentBalanceComponent } from './components/balance/current-balance/current-balance.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MatchByIdComponent } from './components/matches/match-by-id/match-by-id
     SignInComponent,
     MatchesComponent,
     MatchComponent,
-    MatchByIdComponent
+    MatchByIdComponent,
+    BalanceComponent,
+    DepositWithdrawComponent,
+    CurrentBalanceComponent
   ],
   imports: [
     BrowserModule,
