@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,6 +62,23 @@ public class AppUserController {
     appUserRepository.save(appUser);
 
     return ResponseEntity.status(HttpStatus.CREATED).body("Registered");
+  }
+
+
+
+  // Route:       /users/balance
+  // Function:    getBalance()
+  // Description: retrieves the balance of the current user
+  // Parameters:  authentication: object that contains information about the logged in user
+  // Return:      an http response with the balance of the current user
+  @GetMapping
+  @RequestMapping("/balance")
+  public ResponseEntity<?> getBalance(Authentication authentication) {
+    // parses the jwt token to retrieve the email of the user request
+    JsonObject jsonObject = JsonParser.parseString(authentication.getName()).getAsJsonObject();
+    String userEmail = jsonObject.get("sub").getAsString();
+
+    return ResponseEntity.status(HttpStatus.CREATED).body(appUserRepository.getBalanceByEmail(userEmail)); 
   }
 
 
