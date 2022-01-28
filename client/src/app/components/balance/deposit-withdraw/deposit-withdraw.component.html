@@ -1,0 +1,20 @@
+<div>
+  <form class="deposit-withdraw-form">
+    <h1>{{ isDeposit ? "Deposit" : "Withdraw" }}</h1>
+    <label>Amount: ($) </label>
+    <input class="amount-input" type="number" placeholder="0.00" name="amount" [(ngModel)]="amountInput"/>
+    <app-button 
+      text="Deposit"
+      color="#059669"
+      (btnClick)="depositHandler()"
+      *ngIf="isDeposit">
+    </app-button>
+    <app-button 
+      text="Withdraw"
+      color="#059669"
+      (btnClick)="withdrawHandler()"
+      *ngIf="!isDeposit">
+    </app-button>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</div>

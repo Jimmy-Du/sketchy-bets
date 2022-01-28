@@ -34,6 +34,7 @@ export class SignInComponent implements OnInit {
         next: (res) => {
           localStorage.setItem(environment.loginTokenName, res.headers.get('Authorization'))
           this.auth.loggedIn = true
+          this.router.navigate(['matches'])
         },
         error: (err) => {
           // if the status of response is 403, an "Incorrect Credentials" error is displayed
