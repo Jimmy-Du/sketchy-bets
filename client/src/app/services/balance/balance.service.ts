@@ -21,7 +21,10 @@ export class BalanceService {
 
     return this.http.get(
       `${environment.baseAPIURL}/users/balance`,
-      {responseType: 'text', headers}
+      {
+        responseType: 'text', 
+        headers
+      }
     )
   }
 
@@ -37,7 +40,10 @@ export class BalanceService {
     return this.http.post(
       `${environment.baseAPIURL}/users/deposit`,
       { amount: amountToDeposit },
-      {responseType: 'text', headers}
+      {
+        responseType: 'text', 
+        headers
+      }
     )
   }
 
@@ -53,7 +59,10 @@ export class BalanceService {
     return this.http.post(
       `${environment.baseAPIURL}/users/withdraw`,
       { amount: amountToWithdraw },
-      {responseType: 'text', headers}
+      {
+        responseType: 'text', 
+        headers
+      }
     )
   }
 }
