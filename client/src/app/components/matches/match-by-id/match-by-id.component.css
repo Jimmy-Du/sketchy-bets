@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 90vh;
   align-items: center;
+  justify-content: center;
   background-color: #1E3A8A;
 }
 
@@ -29,4 +30,5 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, auto);
+  border-bottom: 1px solid black;
 }
