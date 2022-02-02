@@ -2,6 +2,7 @@
   <ul>
     <li><a routerLink="/matches" routerLinkActive="active-link">Matches</a></li>
     <li *ngIf="auth.loggedIn"><a routerLink="/balance" routerLinkActive="active-link">Balance</a></li>
+    <li *ngIf="auth.loggedIn"><a routerLink="/bets" routerLinkActive="active-link">Bets</a></li>
     <li *ngIf="!auth.loggedIn"><a routerLink="/sign-in" routerLinkActive="active-link">Sign In</a></li>
     <li *ngIf="!auth.loggedIn"><a routerLink="/sign-up" routerLinkActive="active-link">Sign Up</a></li>
     <li *ngIf="auth.loggedIn"><a (click)="logoutHandler()">Sign Out</a></li>

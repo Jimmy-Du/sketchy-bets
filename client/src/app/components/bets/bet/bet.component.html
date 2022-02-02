@@ -1,0 +1,52 @@
+<div class="bet" [ngClass]="{'bet-win': bet!.win, 'bet-loss': bet!.win === false}">
+  <span class="match-date">
+    <p><strong>Start: </strong>{{ bet!.match.matchDate | date: "long" }}</p>
+  </span>
+  <span class="team">
+    <p>{{ bet!.match.firstTeam.teamName }}</p>
+    <p>{{ bet!.match.firstTeamOdds }}</p>
+    <p *ngIf="bet!.selectedFirstTeam"><strong>Selected</strong></p>
+  </span>
+  <span>
+    <p>vs.</p>
+  </span>
+  <span class="team">
+    <p>{{ bet!.match.secondTeam.teamName }}</p>
+    <p>{{ bet!.match.secondTeamOdds }}</p>
+    <p *ngIf="!bet!.selectedFirstTeam"><strong>Selected</strong></p>
+  </span>
+  <span class="bet-info">
+    <p>
+      <strong>
+        Amount:
+      </strong>
+      ${{ bet!.amount }}
+    </p>
+    <p *ngIf="!bet!.match.winner">
+      <strong>
+        Potential Reward:
+      </strong>
+      ${{ potentialReward.toFixed(2) }}
+    </p>
+    <p *ngIf="bet!.match.winner">
+      <strong>
+        {{ bet!.win ? "Amount Won: " : "Amount Lost: " }}
+      </strong>
+      ${{ bet!.winLoseAmount }}
+    </p>
+  </span>
+  <span class="bet-options" *ngIf="!bet!.match.winner">
+    <app-button
+      text="Change Team"
+      color="#FB923C"
+      (btnClick)="changeTeamHandler(bet!.id)"
+    >
+    </app-button>
+    <app-button
+      text="Cancel"
+      color="#EF4444"
+      (btnClick)="cancelBetHandler(bet!.id)"
+    >
+    </app-button>
+  </span>
+</div>

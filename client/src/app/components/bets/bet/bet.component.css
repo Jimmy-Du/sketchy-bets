@@ -1,0 +1,41 @@
+.bet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  width: 50vw;
+  border: transparent;
+  box-shadow: 5px 5px #1E293B;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  background-color: #CBD5E1;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: medium;
+}
+
+.bet-info {
+  grid-column: 1 / 4;
+}
+
+.bet-options {
+  grid-column: 1 / 4;
+  margin-bottom: 10px;
+}
+
+.bet-options app-button {
+  margin: 10px;
+}
+
+.team {
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.bet-win {
+  background-color: #86EFAC;
+}
+
+.bet-loss {
+  background-color: #FCA5A5;
+}

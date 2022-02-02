@@ -1,0 +1,9 @@
+.bets {
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  background-color: #1E3A8A;
+}

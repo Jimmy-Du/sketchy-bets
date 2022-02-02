@@ -16,6 +16,9 @@ import { MatchByIdComponent } from './components/matches/match-by-id/match-by-id
 import { BalanceComponent } from './components/balance/balance.component';
 import { DepositWithdrawComponent } from './components/balance/deposit-withdraw/deposit-withdraw.component';
 import { CurrentBalanceComponent } from './components/balance/current-balance/current-balance.component';
+import { PlaceBetComponent } from './components/matches/match-by-id/place-bet/place-bet.component';
+import { BetsComponent } from './components/bets/bets.component';
+import { BetComponent } from './components/bets/bet/bet.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { CurrentBalanceComponent } from './components/balance/current-balance/cu
     MatchByIdComponent,
     BalanceComponent,
     DepositWithdrawComponent,
-    CurrentBalanceComponent
+    CurrentBalanceComponent,
+    PlaceBetComponent,
+    BetsComponent,
+    BetComponent
   ],
   imports: [
     BrowserModule,

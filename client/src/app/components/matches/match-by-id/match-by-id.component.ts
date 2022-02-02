@@ -20,14 +20,4 @@ export class MatchByIdComponent implements OnInit {
         next: (match) => this.selectedMatch = match
       })
   }
-
-
-
-  // Function:    
-  // Description: 
-  // Parameters:  
-  // Return:      
-  placeBetHandler() {
-    console.log("place bet");
-  }
 }
