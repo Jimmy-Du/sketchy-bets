@@ -7,11 +7,12 @@ import { BetsComponent } from './components/bets/bets.component';
 import { MatchByIdComponent } from './components/matches/match-by-id/match-by-id.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { AuthGuard } from './guards/auth/auth.guard';
+import { AutoLoginGuard } from './guards/auto-login/auto-login.guard';
 import { SignUpAndInGuard } from './guards/sign-up-and-in/sign-up-and-in.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/matches', pathMatch: 'full'},
-  { path: 'matches', component: MatchesComponent },
+  { path: 'matches', component: MatchesComponent, canActivate: [AutoLoginGuard] },
   { path: 'matches/:matchId', component: MatchByIdComponent, canActivate: [AuthGuard] },
   { path: 'balance', component: BalanceComponent, canActivate: [AuthGuard] },
   { path: 'bets', component: BetsComponent, canActivate: [AuthGuard] },
