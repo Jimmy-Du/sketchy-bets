@@ -1,0 +1,41 @@
+.current-balance {
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid;
+  width: 50vw;
+  border-radius: 15px;
+  box-shadow: 5px 5px #1E293B;
+  background-color: whitesmoke;
+}
+
+.current-balance h1 {
+  text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+  .current-balance {
+    width: 90vw;
+    font-size: medium;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 820px) {
+  .current-balance {
+    width: 70vw;
+  }
+}
+
+@media (min-width: 2560px) {
+  .current-balance {
+    width: 30vw;
+    font-size: larger;
+  }
+}
+
+@media (min-width: 3840px) {
+  .current-balance {
+    font-size: x-large;
+    margin-bottom: 50px;
+  }
+}
