@@ -1,21 +1,18 @@
-<div class="bet" [ngClass]="{'bet-win': bet!.win, 'bet-loss': bet!.win === false}">
-  <span class="match-date">
-    <p><strong>Start: </strong>{{ bet!.match.matchDate | date: "long" }}</p>
-  </span>
-  <span class="team">
-    <p>{{ bet!.match.firstTeam.teamName }}</p>
-    <p>{{ bet!.match.firstTeamOdds }}</p>
-    <p *ngIf="bet!.selectedFirstTeam"><strong>Selected</strong></p>
-  </span>
-  <span>
-    <p>vs.</p>
-  </span>
-  <span class="team">
-    <p>{{ bet!.match.secondTeam.teamName }}</p>
-    <p>{{ bet!.match.secondTeamOdds }}</p>
-    <p *ngIf="!bet!.selectedFirstTeam"><strong>Selected</strong></p>
-  </span>
-  <span class="bet-info">
+<div class="bet">
+  <button 
+    class="bet-collapsible" 
+    (click)="showDetailsClick($event)" 
+    [ngClass]="{'bet-win': bet!.win, 'bet-loss': bet!.win === false}"
+  >
+    {{ bet!.match.firstTeam.teamName }} vs. {{ bet!.match.secondTeam.teamName }}
+     - 
+    {{ bet!.match.matchDate | date: 'MMM d, yy, h:mm a z' }}
+  </button>
+  <div class="bet-details">
+    <p>
+      <strong>Selected Team: </strong>
+      {{ bet!.selectedFirstTeam ? bet!.match.firstTeam.teamName : bet!.match.secondTeam.teamName }}
+    </p>
     <p>
       <strong>
         Amount:
@@ -34,19 +31,20 @@
       </strong>
       ${{ bet!.winLoseAmount }}
     </p>
-  </span>
-  <span class="bet-options" *ngIf="!bet!.match.winner">
-    <app-button
-      text="Change Team"
-      color="#FB923C"
-      (btnClick)="changeTeamHandler(bet!.id)"
-    >
-    </app-button>
-    <app-button
-      text="Cancel"
-      color="#EF4444"
-      (btnClick)="cancelBetHandler(bet!.id)"
-    >
-    </app-button>
-  </span>
+    <span class="bet-options" *ngIf="!bet!.match.winner">
+      <app-button
+        text="Change Team"
+        color="#FB923C"
+        (btnClick)="changeTeamHandler(bet!.id)"
+      >
+      </app-button>
+      <app-button
+        text="Cancel"
+        color="#EF4444"
+        (btnClick)="cancelBetHandler(bet!.id)"
+      >
+      </app-button>
+    </span>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </div>
 </div>

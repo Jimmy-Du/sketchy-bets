@@ -1,35 +1,49 @@
 .bet {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, auto);
+  border-bottom: 1px solid black;
   width: 50vw;
-  border: transparent;
-  box-shadow: 5px 5px #1E293B;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 15px;
-  background-color: #CBD5E1;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: medium;
 }
 
-.bet-info {
+.bet-collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  text-align: center;
+  box-shadow: 5px 0px #1E293B;
+}
+
+.bet-collapsible:hover {
+  filter: brightness(80%);
+}
+
+.bet-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  box-shadow: 5px 0px #1E293B;
+}
+
+.bet-details .error {
   grid-column: 1 / 4;
+  justify-self: center;
 }
 
 .bet-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, auto);
   grid-column: 1 / 4;
   margin-bottom: 10px;
-}
-
-.bet-options app-button {
-  margin: 10px;
-}
-
-.team {
-  border: 1px solid black;
-  border-radius: 15px;
 }
 
 .bet-win {
