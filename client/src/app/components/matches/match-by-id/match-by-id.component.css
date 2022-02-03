@@ -29,6 +29,6 @@
 .match-by-id-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
   border-bottom: 1px solid black;
 }

@@ -78,7 +78,7 @@ body {
 .match {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
   width: 50vw;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -89,6 +89,10 @@ body {
 
 .match:hover {
   filter: brightness(80%);
+}
+
+.match-tournament {
+  grid-column: 1 / 4;
 }
 
 .match-date {

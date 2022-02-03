@@ -17,6 +17,7 @@ public class Match {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private Date match_date;
+  private String tournament;
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "first_team_id", referencedColumnName = "id")
   private Team firstTeam;
@@ -48,6 +49,14 @@ public class Match {
 
   public void setMatchDate(Date date) {
     this.match_date = date;
+  }
+
+  public String getTournament() {
+    return this.tournament;
+  }
+
+  public void setTournament(String tournament) {
+    this.tournament = tournament;
   }
 
   public Team getFirstTeam() {

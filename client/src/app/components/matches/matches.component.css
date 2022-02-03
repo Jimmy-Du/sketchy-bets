@@ -1,5 +1,7 @@
 .matches {
   min-height: 90vh;
+  max-height: 90vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
