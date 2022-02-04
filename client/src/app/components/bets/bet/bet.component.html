@@ -5,34 +5,50 @@
     [ngClass]="{'bet-win': bet!.win, 'bet-loss': bet!.win === false}"
   >
     {{ bet!.match.firstTeam.teamName }} vs. {{ bet!.match.secondTeam.teamName }}
-     - 
+    <strong>|</strong>
     {{ bet!.match.tournament }}
-     - 
+    <strong>|</strong>
     {{ bet!.match.matchDate | date: 'MMM d, yy, h:mm a z' }}
   </button>
   <div class="bet-details">
-    <p>
-      <strong>Selected Team: </strong>
-      {{ bet!.selectedFirstTeam ? bet!.match.firstTeam.teamName : bet!.match.secondTeam.teamName }}
-    </p>
-    <p>
-      <strong>
-        Amount:
-      </strong>
-      ${{ bet!.amount }}
-    </p>
-    <p *ngIf="!bet!.match.winner">
-      <strong>
-        Potential Reward:
-      </strong>
-      ${{ potentialReward.toFixed(2) }}
-    </p>
-    <p *ngIf="bet!.match.winner">
-      <strong>
-        {{ bet!.win ? "Amount Won: " : "Amount Lost: " }}
-      </strong>
-      ${{ bet!.winLoseAmount }}
-    </p>
+    <span>
+      <p>
+        <strong>Selected Team: </strong>
+      </p>
+      <p>
+        {{ bet!.selectedFirstTeam ? bet!.match.firstTeam.teamName : bet!.match.secondTeam.teamName }}
+      </p>
+    </span>
+    <span>
+      <p>
+        <strong>
+          Amount:
+        </strong>
+      </p>
+      <p>
+        ${{ bet!.amount }}
+      </p>
+    </span>
+    <span *ngIf="!bet!.match.winner">
+      <p>
+        <strong>
+          Potential Reward:
+        </strong>
+      </p>
+      <p>
+        ${{ potentialReward.toFixed(2) }}
+      </p>
+    </span>
+    <span *ngIf="bet!.match.winner">
+      <p>
+        <strong>
+          {{ bet!.win ? "Amount Won: " : "Amount Lost: " }}
+        </strong>
+      </p>
+      <p>
+        ${{ bet!.winLoseAmount }}
+      </p>
+    </span>
     <span class="bet-options" *ngIf="!bet!.match.winner">
       <app-button
         text="Change Team"
