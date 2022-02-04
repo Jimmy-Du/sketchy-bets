@@ -19,6 +19,7 @@ import { CurrentBalanceComponent } from './components/balance/current-balance/cu
 import { PlaceBetComponent } from './components/matches/match-by-id/place-bet/place-bet.component';
 import { BetsComponent } from './components/bets/bets.component';
 import { BetComponent } from './components/bets/bet/bet.component';
+import { TournamentPipe } from './pipes/tournament/tournament.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BetComponent } from './components/bets/bet/bet.component';
     CurrentBalanceComponent,
     PlaceBetComponent,
     BetsComponent,
-    BetComponent
+    BetComponent,
+    TournamentPipe
   ],
   imports: [
     BrowserModule,
