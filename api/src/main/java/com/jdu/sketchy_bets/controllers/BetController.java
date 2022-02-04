@@ -1,13 +1,16 @@
 package com.jdu.sketchy_bets.controllers;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.jdu.sketchy_bets.models.AppUser;
 import com.jdu.sketchy_bets.models.Bet;
+import com.jdu.sketchy_bets.models.Match;
 import com.jdu.sketchy_bets.repositories.AppUserRepository;
 import com.jdu.sketchy_bets.repositories.BetRepository;
+import com.jdu.sketchy_bets.repositories.MatchRepository;
 import com.jdu.sketchy_bets.requestModels.BalanceRequest;
 import com.jdu.sketchy_bets.requestModels.BetRequest;
 
@@ -28,12 +31,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class BetController {
   private BetRepository betRepository;
   private AppUserRepository appUserRepository;
+  private MatchRepository matchRepository;
 
 
 
-  public BetController(BetRepository betRepository, AppUserRepository appUserRepository) {
+  public BetController(BetRepository betRepository, AppUserRepository appUserRepository, MatchRepository matchRepository) {
     this.betRepository = betRepository;
     this.appUserRepository = appUserRepository;
+    this.matchRepository = matchRepository;
   }
 
 
@@ -71,9 +76,18 @@ public class BetController {
     JsonObject jsonObject = JsonParser.parseString(authentication.getName()).getAsJsonObject();
     String userEmail = jsonObject.get("sub").getAsString();
     AppUser user = appUserRepository.findByEmail(userEmail);
+    Match matchToBet = matchRepository.getById(betRequest.getMatchId());
 
+    // if the amount of the bet is less than 0, an error is sent back to indicate an invalid amount
+    if (betRequest.getAmount().compareTo(new BigDecimal("0.00")) < 0) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid amount");
+    }
+    // if the start date of the match is before the current time, an error is sent back stating the match has already begun
+    else if (matchToBet.getMatchDate().before(new Date())) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Match has already started, cannot place bet");
+    }
     // if the user does not have a higher balance than the requested amount to bet, an error is sent back
-    if (user.getBalance().compareTo(betRequest.getAmount()) < 0) {
+    else if (user.getBalance().compareTo(betRequest.getAmount()) < 0) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Not enough balance for bet amount");
     }
     // if an existing bet exists with the current user and match, an error is sent back indicating a bet
@@ -109,11 +123,19 @@ public class BetController {
     AppUser user = appUserRepository.findByEmail(userEmail);
     Bet betToUpdate = betRepository.findByIdAndUserId(id, user.getId());
     
+    // if the amount of the bet is less than 0, an error is sent back to indicate an invalid amount
+    if (updateRequest.getAmount().compareTo(new BigDecimal("0.00")) < 0) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid amount");
+    }
     // if the bet does not exist, an error is sent back
-    if (betToUpdate == null) {
+    else if (betToUpdate == null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bet not found");
     }
-
+    // if the start date of the match is before the current time, an error is sent back stating the match has already begun 
+    else if (betToUpdate.getMatch().getMatchDate().before(new Date())) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Match has already started, cannot alter bet");
+    }
+    
     BigDecimal remainingUserBalance = user.getBalance().add(betToUpdate.getAmount()).subtract(updateRequest.getAmount());
 
     // if the new balance after the new bet amount is updated is less than 0, and error is sent back
@@ -147,6 +169,10 @@ public class BetController {
     if (betToUpdate == null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bet not found");
     }
+    // if the start date of the match is before the current time, an error is sent back stating the match has already begun 
+    else if (betToUpdate.getMatch().getMatchDate().before(new Date())) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Match has already started, cannot alter bet");
+    }
 
     // calls query to invert the selected team of the bet
     betRepository.updateBetTeam(id);
@@ -173,6 +199,10 @@ public class BetController {
     // if the bet does not exist, an error is sent back
     if (betToDelete == null) {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bet not found");
+    }
+    // if the start date of the match is before the current time, an error is sent back stating the match has already begun 
+    if (betToDelete.getMatch().getMatchDate().before(new Date())) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Match has already started, cannot alter bet");
     }
 
     betRepository.deleteBet(user.getId(), id);

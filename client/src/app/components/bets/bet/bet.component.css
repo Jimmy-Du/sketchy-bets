@@ -32,11 +32,6 @@
   box-shadow: 5px 0px #1E293B;
 }
 
-.bet-details .error {
-  grid-column: 1 / 4;
-  justify-self: center;
-}
-
 .bet-options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
