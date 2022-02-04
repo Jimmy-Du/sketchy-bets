@@ -1,3 +1,9 @@
-<div class="matches">
-  <app-match *ngFor="let match of matches" [match]="match"></app-match>
+<div class="matches-wrapper">
+  <h1>Upcoming Matches</h1>
+  <div class="tournament" *ngFor="let tournament of tournaments">
+    <button class="tournament-collapsible" (click)="toggleMatches($event)">{{ tournament }}</button>
+    <div class="matches">
+      <app-match *ngFor="let match of matches | tournament: tournament" [match]="match"></app-match>
+    </div>
+  </div>
 </div>
