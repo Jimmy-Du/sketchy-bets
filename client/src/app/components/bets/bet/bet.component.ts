@@ -32,10 +32,9 @@ export class BetComponent implements OnInit {
 
 
 
-  // Function:    cancelBetHandler()
-  // Description: called upon when the user clicks the "Cancel" button and will
-  //              attempt to delete the desired bet
-  // Parameters:  id: the id of the bet to be canceled
+  // Function:    showDetailsClick()
+  // Description: called upon when the user clicks the bet collapsible and will display the bet details
+  // Parameters:  $event: info about the event that called this function
   // Return:      N/A
   showDetailsClick($event: any) {
     const content = $event.target.nextElementSibling
@@ -72,7 +71,7 @@ export class BetComponent implements OnInit {
             }
             // else, the error message is displayed to the user
             else {
-              this.error = err.error
+               alert(err.error)
             }
           }
         })
@@ -98,7 +97,7 @@ export class BetComponent implements OnInit {
           }
           // else, the error message is displayed to the user
           else {
-            this.error = err.error
+            alert(err.error)
           }
         }
       })
