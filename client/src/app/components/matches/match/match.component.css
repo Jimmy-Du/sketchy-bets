@@ -1,19 +1,14 @@
 .match {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
-  width: 50vw;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 15px;
-  box-shadow: 4px 4px #1E293B;
-  background-color: #CBD5E1;
+  grid-template-rows: repeat(2, auto);
+  background-color: white;
+  width: 100%;
+  background-color: #FED7AA;
+  color: #0F172A;
+  border-bottom: 1px solid #0F172A;
 }
 
 .match:hover {
   filter: brightness(80%);
-}
-
-.match-tournament {
-  grid-column: 1 / 4;
 }
