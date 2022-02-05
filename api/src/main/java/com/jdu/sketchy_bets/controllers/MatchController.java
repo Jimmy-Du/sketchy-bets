@@ -32,7 +32,7 @@ public class MatchController {
   // Return:      an http response with the matches or an error as to why matches could not be retrieved
   @GetMapping
   public ResponseEntity<?> getMatches() {
-    return ResponseEntity.status(HttpStatus.OK).body(matchRepository.findAll());
+    return ResponseEntity.status(HttpStatus.OK).body(matchRepository.findByWinnerIsNull());
   }
 
 
