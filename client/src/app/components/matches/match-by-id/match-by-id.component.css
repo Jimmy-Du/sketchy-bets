@@ -1,34 +1,38 @@
 .match-by-id-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
   align-items: center;
   justify-content: center;
+  min-height: 90vh;
   background-color: #1E3A8A;
 }
 
 .match-by-id {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  background-color: #CBD5E1;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 15px;
-  box-shadow: 5px 5px #1E293B;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
+  background-color: #A3E635;
+  color: #0F172A;
+  width: 70vw;
+  border-radius: 25px;
+  box-shadow: 4px 4px #64748B;
 }
 
 .match-by-id h2 {
   text-decoration: underline;
+  grid-column: 1 / 4;
 }
 
-.match-by-id p {
-  font-size: large;
+.match-odds {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.match-by-id-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
-  border-bottom: 1px solid black;
+.match-by-id-tournament {
+  grid-column: 1 / 4;
+}
+
+.match-by-id-date {
+  grid-column: 1 / 4;
+  margin-top: 0;
 }
