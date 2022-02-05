@@ -1,30 +1,22 @@
-<div>
-  <form class="place-bet-form">
-    <h2>Place Bet</h2>
-    <span class="team-select">
-      <h3>Team Select:</h3>
-      <span>
-        <label>{{ matchInfo!.firstTeam.teamName }}</label>
-        <input type="radio" [(ngModel)]="firstTeamSelected" name="teamSelect" [value]="true" (change)="amountChangeHandler()"/>
-      </span>
-      <span>
-        <input type="radio" [(ngModel)]="firstTeamSelected" name="teamSelect" [value]="false" (change)="amountChangeHandler()"/>
-        <label>{{ matchInfo!.secondTeam.teamName }}</label>
-      </span>
-    </span>
-    <h3>Bet Amount: ($)</h3>
-    <input type="number" [(ngModel)]="amountInput" placeholder="0.00" name="amount" (input)="amountChangeHandler()"/>
-    <p>
-      Potential Reward: 
-      <br/>
-      {{ potentialReward.toFixed(2) }}
-    </p>
-    <app-button 
-      text="Place Bet"
-      color="#059669"
-      (btnClick)="placeBetHandler()"
-    >
-    </app-button>
-    <p class="error" *ngIf="error">{{ error }}</p>
-  </form>
-</div>
+<form class="place-bet-form">
+  <h2>Place Bet</h2>
+  <h3>Selected Team</h3>
+  <select name="teamSelect" [(ngModel)]="firstTeamSelected" (change)="amountChangeHandler()">
+    <option [ngValue]="true">{{ matchInfo!.firstTeam.teamName }}</option>
+    <option [ngValue]="false">{{ matchInfo!.secondTeam.teamName }}</option>
+  </select>
+  <h3>Amount:</h3>
+  <input type="number" [(ngModel)]="amountInput" placeholder="0.00" name="amount" (input)="amountChangeHandler()"/>
+  <p>
+    Potential Reward: 
+    <br/>
+    ${{ potentialReward.toFixed(2) }}
+  </p>
+  <app-button 
+    text="Place Bet"
+    color="#059669"
+    (btnClick)="placeBetHandler()"
+  >
+  </app-button>
+  <p class="error" *ngIf="error">{{ error }}</p>
+</form>
