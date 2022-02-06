@@ -2,27 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  color: #0F172A;
   font-size: large;
-}
+  box-shadow: 4px 4px #64748B;
 
-.place-bet-form input {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  font-size: large;
-  text-align: center;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  border-radius: 25px;
+  background-color: #A3E635;
+  width: 70vw;
 }
 
 .place-bet-form h2 {
   text-decoration: underline;
+  margin-bottom: 0;
 }
 
-.team-select {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, auto);
+.place-bet-form h3 {
+  text-decoration: underline;
 }
 
-.team-select h3 {
-  grid-column: 1 / 3;
+.place-bet-form input {
+  font-size: large;
+  text-align: center;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 3px 3px #64748B;
+}
+
+.place-bet-form select {
+  text-align: center;
+  font-size: large;
+  border-radius: 25px;
+  border: none;
+  padding: 5px;
+  box-shadow: 3px 3px #64748B;
 }
