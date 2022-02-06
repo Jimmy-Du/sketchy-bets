@@ -41,3 +41,35 @@
   display: block;
   box-shadow: 5px 0px #1E293B;
 }
+
+@media (max-width: 680px) {
+  .tournament {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 820px) {
+  .tournament {
+    width: 80vw;
+  }
+}
+
+@media (min-width: 2560px) {
+  .tournament {
+    font-size: x-large;
+  }
+
+  .tournament-collapsible {
+    font-size: x-large;
+  }
+
+  .matches-wrapper h1 {
+    font-size: xx-large;
+  }
+}
+
+@media (min-width: 3840px) {
+  .tournament {
+    width: 40vw;
+  }
+}
