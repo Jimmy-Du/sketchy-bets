@@ -1,0 +1,11 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  background-color: #1E3A8A;
+  color: #0F172A;
+}
+
+.not-found a {
+  color: white;
+}
