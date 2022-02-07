@@ -6,12 +6,14 @@
     <app-button 
       text="Deposit"
       color="#059669"
+      [isLoading]="isLoading"
       (btnClick)="depositHandler()"
       *ngIf="isDeposit">
     </app-button>
     <app-button 
       text="Withdraw"
       color="#059669"
+      [isLoading]="isLoading"
       (btnClick)="withdrawHandler()"
       *ngIf="!isDeposit">
     </app-button>
