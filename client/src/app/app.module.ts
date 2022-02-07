@@ -21,6 +21,7 @@ import { BetsComponent } from './components/bets/bets.component';
 import { BetComponent } from './components/bets/bet/bet.component';
 import { TournamentPipe } from './pipes/tournament/tournament.pipe';
 import { SpinnerComponent } from './components/common/spinner/spinner.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SpinnerComponent } from './components/common/spinner/spinner.component'
     BetsComponent,
     BetComponent,
     TournamentPipe,
-    SpinnerComponent
+    SpinnerComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
