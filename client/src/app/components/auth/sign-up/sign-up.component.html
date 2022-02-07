@@ -9,6 +9,7 @@
       <app-button 
         text="Sign Up" 
         color="#059669" 
+        [isLoading]="isLoading"
         (btnClick)="signUpHandler()">
       </app-button>
       <a routerLink="/sign-in">Already have an account?</a>

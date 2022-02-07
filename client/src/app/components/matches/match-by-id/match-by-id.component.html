@@ -1,5 +1,5 @@
-<div class="match-by-id-wrapper" *ngIf="selectedMatch">
-  <div class="match-by-id">
+<div class="match-by-id-wrapper">
+  <div class="match-by-id" *ngIf="selectedMatch">
     <h2>Match Details</h2>
     <p class="match-by-id-date">{{ selectedMatch!.matchDate | date: 'long' }}</p>
     <span>
@@ -13,5 +13,6 @@
     </span>
     <p class="match-by-id-tournament">{{ selectedMatch!.tournament }}</p>
   </div>
-  <app-place-bet [matchInfo]="selectedMatch"></app-place-bet>
+  <app-place-bet *ngIf="selectedMatch" [matchInfo]="selectedMatch"></app-place-bet>
+  <app-spinner *ngIf="!selectedMatch"></app-spinner>
 </div>

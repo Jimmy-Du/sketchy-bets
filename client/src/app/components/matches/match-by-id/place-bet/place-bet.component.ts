@@ -14,6 +14,7 @@ export class PlaceBetComponent implements OnInit {
   amountInput?: number
   potentialReward: number = 0.00
   error: string = ""
+  isLoading: boolean = false
 
   constructor(private betService: BetService, private router: Router) { }
 
@@ -54,17 +55,25 @@ export class PlaceBetComponent implements OnInit {
   // Return:      N/A
   placeBetHandler() {
     this.error = ""
+    this.isLoading = true
     
     // if the amount inputted is null or undefined, an error is displayed
     if (this.amountInput === null || this.amountInput === undefined) {
+      this.isLoading = false
       this.error = "Invalid amount entered"
     }
     // else, attempts an http request to place the bet
     else {
       this.betService.placeBet(this.matchInfo!.id, this.amountInput!, this.firstTeamSelected)
         .subscribe({
-          next: (res) => this.router.navigate(['bets']),
-          error: (err) => this.error = err.error
+          next: (res) => {
+            this.isLoading = false
+            this.router.navigate(['bets'])
+          },
+          error: (err) => {
+            this.isLoading = false
+            this.error = err.error
+          }
         })
     }
   }
