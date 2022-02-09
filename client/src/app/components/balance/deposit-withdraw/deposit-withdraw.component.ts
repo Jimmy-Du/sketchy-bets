@@ -33,6 +33,7 @@ export class DepositWithdrawComponent implements OnInit {
     // if the amount entered to be deposit is not a valid number, an error is displayed
     if (this.amountInput === null || this.amountInput === undefined) {
       this.error = "Invalid amount entered."
+      this.isLoading = false
     }
     // else, a request is made to deposit the specified amount
     else {
@@ -74,6 +75,7 @@ export class DepositWithdrawComponent implements OnInit {
     // if the amount entered to be deposit is not a valid number, an error is displayed
     if (this.amountInput === null || this.amountInput === undefined) {
       this.error = "Invalid amount entered."
+      this.isLoading = false
     }
     // else, a request is made to withdraw the specified amount
     else {
