@@ -20,6 +20,8 @@ import { PlaceBetComponent } from './components/matches/match-by-id/place-bet/pl
 import { BetsComponent } from './components/bets/bets.component';
 import { BetComponent } from './components/bets/bet/bet.component';
 import { TournamentPipe } from './pipes/tournament/tournament.pipe';
+import { SpinnerComponent } from './components/common/spinner/spinner.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TournamentPipe } from './pipes/tournament/tournament.pipe';
     PlaceBetComponent,
     BetsComponent,
     BetComponent,
-    TournamentPipe
+    TournamentPipe,
+    SpinnerComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

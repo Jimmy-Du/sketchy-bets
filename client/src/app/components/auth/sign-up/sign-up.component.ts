@@ -11,6 +11,7 @@ export class SignUpComponent implements OnInit {
   emailInput: string = ""
   passwordInput: string = ""
   error: string = ""
+  isLoading: boolean = false
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -27,12 +28,19 @@ export class SignUpComponent implements OnInit {
   signUpHandler(): void {
     // clears any previous errors
     this.error = ""
+    this.isLoading = true
 
     // sends request to register the user
     this.authService.registerUser(this.emailInput, this.passwordInput)
       .subscribe({
-        next: (res) => this.router.navigate(['sign-in']),
-        error: (err) => this.error = err.error
+        next: (res) => {
+          this.isLoading = false
+          this.router.navigate(['sign-in']) 
+        },
+        error: (err) => {
+          this.isLoading = false
+          this.error = err.error
+        }
       })
   }
 }

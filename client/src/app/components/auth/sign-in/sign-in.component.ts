@@ -12,6 +12,7 @@ export class SignInComponent implements OnInit {
   error: string = ""
   passwordInput: string = ""
   emailInput: string = ""
+  isLoading: boolean = false
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -28,15 +29,20 @@ export class SignInComponent implements OnInit {
   signInHandler() {
     // clears out any existing errors
     this.error = ""
+    this.isLoading = true
 
     this.auth.loginUser(this.emailInput, this.passwordInput)
       .subscribe({
         next: (res) => {
+          this.isLoading = false
+
           localStorage.setItem(environment.loginTokenName, res.headers.get('Authorization'))
           this.auth.loggedIn = true
           this.router.navigate(['matches'])
         },
         error: (err) => {
+          this.isLoading = false
+
           // if the status of response is 403, an "Incorrect Credentials" error is displayed
           if (err.status == 403) {
             this.error = "Incorrect Credentials"

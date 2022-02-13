@@ -11,6 +11,7 @@ export class DepositWithdrawComponent implements OnInit {
   @Input() isDeposit: boolean = false
   amountInput?: number
   error: string = ""
+  isLoading: boolean = false
 
   constructor(private balanceService: BalanceService, private router: Router) { }
 
@@ -27,17 +28,24 @@ export class DepositWithdrawComponent implements OnInit {
   depositHandler() {
     // clears any existing errors
     this.error = ""
+    this.isLoading = true
 
     // if the amount entered to be deposit is not a valid number, an error is displayed
     if (this.amountInput === null || this.amountInput === undefined) {
       this.error = "Invalid amount entered."
+      this.isLoading = false
     }
     // else, a request is made to deposit the specified amount
     else {
       this.balanceService.deposit(this.amountInput!)
         .subscribe({
-          next: () => window.location.reload(),
+          next: () => {
+            this.isLoading = false
+            window.location.reload()
+          },
           error: (err) => {
+            this.isLoading = false
+            
             // if the returned status code is 403, the user is sent to the sign-in page to
             // sign back in
             if (err.status === 403) {
@@ -62,17 +70,24 @@ export class DepositWithdrawComponent implements OnInit {
   withdrawHandler() {
     // clears any existing errors
     this.error = ""
+    this.isLoading = true
 
     // if the amount entered to be deposit is not a valid number, an error is displayed
     if (this.amountInput === null || this.amountInput === undefined) {
       this.error = "Invalid amount entered."
+      this.isLoading = false
     }
     // else, a request is made to withdraw the specified amount
     else {
       this.balanceService.withdraw(this.amountInput!)
         .subscribe({
-          next: () => window.location.reload(),
+          next: () => {
+            this.isLoading = false
+            window.location.reload()
+          },
           error: (err) => {
+            this.isLoading = false
+
             // if the returned status code is 403, the user is sent to the sign-in page to
             // sign back in
             if (err.status === 403) {

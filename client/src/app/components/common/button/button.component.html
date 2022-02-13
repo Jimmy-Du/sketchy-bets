@@ -2,5 +2,6 @@
   [ngStyle]="{'background-color': color}"
   class="btn"
   (click)="onClick()">
-  {{ text }}
+  {{ !isLoading ? text : null }}
+  <app-spinner *ngIf="isLoading"></app-spinner>
 </button>
