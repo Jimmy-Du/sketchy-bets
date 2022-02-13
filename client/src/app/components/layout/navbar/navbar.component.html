@@ -1,10 +1,16 @@
-<nav>
-  <ul>
-    <li><a routerLink="/matches" routerLinkActive="active-link">Matches</a></li>
-    <li *ngIf="auth.loggedIn"><a routerLink="/balance" routerLinkActive="active-link">Balance</a></li>
-    <li *ngIf="auth.loggedIn"><a routerLink="/bets" routerLinkActive="active-link">Bets</a></li>
-    <li *ngIf="!auth.loggedIn"><a routerLink="/sign-in" routerLinkActive="active-link">Sign In</a></li>
-    <li *ngIf="!auth.loggedIn"><a routerLink="/sign-up" routerLinkActive="active-link">Sign Up</a></li>
-    <li *ngIf="auth.loggedIn"><a (click)="logoutHandler()">Sign Out</a></li>
-  </ul>
+<nav class="navbar">
+  <div class="brand-title">Sketchy Bets</div>
+  <a class="toggle-btn" (click)="toggleLinks($event)">
+    Menu
+  </a>
+  <div class="navbar-links">
+    <ul>
+      <li><a routerLink="/matches" routerLinkActive="active-link">Matches</a></li>
+      <li *ngIf="auth.loggedIn"><a routerLink="/balance" routerLinkActive="active-link">Balance</a></li>
+      <li *ngIf="auth.loggedIn"><a routerLink="/bets" routerLinkActive="active-link">Bets</a></li>
+      <li *ngIf="!auth.loggedIn"><a routerLink="/sign-in" routerLinkActive="active-link">Sign In</a></li>
+      <li *ngIf="!auth.loggedIn"><a routerLink="/sign-up" routerLinkActive="active-link">Sign Up</a></li>
+      <li *ngIf="auth.loggedIn"><a (click)="logoutHandler()">Sign Out</a></li>
+    </ul>
+  </div>
 </nav>
