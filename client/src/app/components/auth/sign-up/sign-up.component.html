@@ -1,19 +1,27 @@
-<div class="auth-wrapper">
-  <div class="auth">
-    <h1>Sign Up</h1>
-    <form class="auth-form">
-      <label class="input-label">Email</label>
-      <input class="auth-input" type="email" placeholder="email" [(ngModel)]="emailInput" name="email"/>
-      <label class="input-label">Password</label>
-      <input class="auth-input" type="password" placeholder="password" [(ngModel)]="passwordInput" name="password"/>
-      <app-button 
-        text="Sign Up" 
-        color="#059669" 
-        [isLoading]="isLoading"
-        (btnClick)="signUpHandler()">
-      </app-button>
-      <a routerLink="/sign-in">Already have an account?</a>
-      <p class="error" *ngIf="error">{{error}}</p>
-    </form>
+<div class="split-screen">
+  <div class="top">
+    <section class="intro">
+      <h1>Welcome to Sketchy Bets</h1>
+      <p>Bet on the biggest games of the year.</p>
+    </section>
+  </div>
+  <div class="bottom">
+    <div class="auth">
+      <h1>Sign Up</h1>
+      <form class="auth-form">
+        <label class="input-label">Email</label>
+        <input class="auth-input" type="email" placeholder="email" [(ngModel)]="emailInput" name="email"/>
+        <label class="input-label">Password</label>
+        <input class="auth-input" type="password" placeholder="password" [(ngModel)]="passwordInput" name="password"/>
+        <app-button 
+          text="Sign Up" 
+          color="#059669" 
+          [isLoading]="isLoading"
+          (btnClick)="signUpHandler()">
+        </app-button>
+        <a routerLink="/sign-in">Already have an account?</a>
+        <p class="error" *ngIf="error">{{error}}</p>
+      </form>
+    </div>
   </div>
 </div>
