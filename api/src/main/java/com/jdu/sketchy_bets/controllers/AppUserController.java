@@ -56,7 +56,11 @@ public class AppUserController {
     else if (existingUser != null) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already in use.");
     }
-
+    // if the password is null or less than 7 characters an error is sent back indicating invalid password
+    else if (appUser.getPassword() == null || appUser.getPassword().length() < 7) {
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid password. Password must be 7 characters or longer.");
+    }
+    
     // encodes the password then saves the user into the database
     appUser.setPassword(bCryptPasswordEncoder.encode(appUser.getPassword()));
     appUserRepository.save(appUser);
