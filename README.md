@@ -3,6 +3,8 @@ Sketchy Bets is a web application that enables users to place bets on esport mat
 
 ## Live Demo
 Click [here](https://sketchy-bets.netlify.app/matches) for a live preview of the application.
+<br/>
+<strong>Note:</strong> The application may take up to 30 seconds to wake up after not being in use for a long period of time.
 
 ## Tech
 - Angular
