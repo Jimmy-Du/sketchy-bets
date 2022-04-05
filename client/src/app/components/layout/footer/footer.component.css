@@ -1,5 +1,5 @@
 footer {
-  background-color: #0d9488;
+  background-color: #4f46e5;
   height: 5vh;
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@ footer {
 }
 
 footer p {
-  color: white;
+  color: #f9f9fb;
   font-size: large;
 }
 

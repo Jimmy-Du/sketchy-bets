@@ -5,8 +5,9 @@
   border: 1px solid;
   width: 50vw;
   border-radius: 15px;
-  box-shadow: 5px 5px #1E293B;
-  background-color: whitesmoke;
+  box-shadow: 5px 5px #3f3e4a;
+  background-color: #f9f9fb;
+  color: #3f3e4a;
 }
 
 .current-balance h1 {

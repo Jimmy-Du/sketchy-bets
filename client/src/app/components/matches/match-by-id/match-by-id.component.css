@@ -4,14 +4,14 @@
   align-items: center;
   justify-content: center;
   min-height: 90vh;
-  background-color: #1E3A8A;
+  background-color: #e3c9f7;
 }
 
 .match-by-id {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, auto);
-  background-color: #A3E635;
+  background-color: #cda1f2;
   color: #0F172A;
   width: 70vw;
   border-radius: 25px;
